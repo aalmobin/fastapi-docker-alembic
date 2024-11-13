@@ -5,3 +5,5 @@
 * Run the server using this command `docker-compose up -d --build`
 
 * For database migration run this command `docker-compose exec server pdm run alembic upgrade head`
+
+* To create new migration run this command `docker-compose exec server pdm run alembic revision --autogenerate -m "message"`

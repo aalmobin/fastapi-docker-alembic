@@ -3,7 +3,7 @@ name = "mysite"
 version = "0.1.0"
 description = "Default template for PDM package"
 authors = [
-    {name = "mobin", email = "abdullah.mobin@gennext.net"},
+    {name = "mobin", email = "aalmobin8@gmail.com"},
 ]
 dependencies = [
     "fastapi[all]>=0.115.4",
