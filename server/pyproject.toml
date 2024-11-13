@@ -1,0 +1,26 @@
+[project]
+name = "mysite"
+version = "0.1.0"
+description = "Default template for PDM package"
+authors = [
+    {name = "mobin", email = "abdullah.mobin@gennext.net"},
+]
+dependencies = [
+    "fastapi[all]>=0.115.4",
+    "alembic>=1.13.3",
+    "sqlalchemy>=2.0.36",
+    "pydantic-settings>=2.6.1",
+    "asyncpg>=0.30.0",
+    "psycopg2-binary>=2.9.10",
+]
+requires-python = ">=3.8"
+readme = "README.md"
+license = {text = "MIT"}
+
+
+[tool.pdm]
+distribution = false
+
+[tool.pdm.scripts]
+dev = {cmd = "bash -c 'pdm sync; pdm run uvicorn src.main:app --host 0.0.0.0 --port 8000 --reload'"}
+app = "pdm run uvicorn src.main:app --reload"

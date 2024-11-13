@@ -1,0 +1,26 @@
+services:
+  db:
+    image: postgres:16
+    container_name: Mysite_db
+    volumes:
+      - Mysite-db:/var/lib/postgresql/data
+    env_file:
+      - .env
+  server:
+    container_name: Mysite_server
+    # image: 
+    build:
+      context: ./server 
+      dockerfile: Dockerfile
+    command: pdm run dev
+    volumes:
+      - ./:/app
+    ports:
+      - "0.0.0.0:8000:8000"
+    depends_on:
+      - db
+    env_file:
+      - .env
+  
+volumes:
+  Mysite-db:
